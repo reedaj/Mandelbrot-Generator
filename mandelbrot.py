@@ -47,7 +47,7 @@ def generator(widthStart, widthEnd, width, height, iterations, zoom, center, n, 
         for y in range(0,  widthEnd-widthStart):
             c = zoom*((y+widthStart)/width - 0.5 + ((x/height)-0.5)*1j)
             c = c + center
-
+            c = c.real + 1j*c.imag * height/width
             #Check how fast the point is shooting off to infnity
             delta = abs(mandelbrot( c, n, iterations ))*2
             #print (delta)
